@@ -19,7 +19,7 @@ var source = {
 	}
 }
 
-var connection = mysql.createConnection(source.local);
+var connection = mysql.createConnection(source.heroku);
 
 // make the connection
 connection.connect(function(err) {
