@@ -1,7 +1,7 @@
-// dependencies
-// orm
+// require the orm
 var orm = require('../config/orm.js');
 
+// make burger functions
 var burger = {
 	// code populates left side with uneaten burger info
 	uneatenDis: function (callback) {
@@ -28,4 +28,5 @@ var burger = {
 	}
 }
 
+// export burger functions
 module.exports = burger;

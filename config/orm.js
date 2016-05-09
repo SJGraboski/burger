@@ -1,41 +1,50 @@
 // require connection file
 var connection = require('./connection.js');
 
-// Values: (id, burger_name, devoured, date)
-
+// make orm object
 var orm = {
 	// get all non-devoured burgers
 	getUneaten : function(callback) {
-		s = "SELECT * FROM burgers WHERE devoured = FALSE";
+		// get uneaten starting with the earliest
+		s = "SELECT * FROM burgers WHERE devoured = FALSE ORDER BY date ASC";
+		// make query
 		connection.query(s, function(err, result){
 			if (err) throw err;
+			// callback
 			callback(result);
 		}) 
 	},
 	// get all devoured burgers
 	getEaten : function(callback) {
-		s = "SELECT * FROM burgers WHERE devoured = TRUE";
+		// get eaten starting with the latest
+		s = "SELECT * FROM burgers WHERE devoured = TRUE ORDER BY date DESC";
+		// make query
 		connection.query(s, function(err, result){
 			if (err) throw err;
+			// calback
 			callback(result);
 		}) 
 	},
 	// add a burger
 	addBurger : function(burger) {
-		s = "INSERT INTO burger " +
+		// add a burger with the appropos values
+		s = "INSERT INTO burgers " +
 					"VALUES " +
-						"(null, '" + burger + "', FALSE, null)";
-		connection.query(s, function(err, result){
+						"(null, ?, FALSE, null)";
+		// make query
+		connection.query(s, [burger], function(err, result){
 			if (err) throw err;
 		})
 	},
 
 	// devour a burger
 	eatBurger : function(burger) {
+		// eat the burger matching the param
 		s = "UPDATE burgers " + 
 				"SET devoured=TRUE " +
-				"WHERE burger_name=" + burger +";";
-		connection.query(s, function(err, result){
+				'WHERE burger_name=?';
+		// make query
+		connection.query(s, [burger], function(err, result){
 			if (err) throw err;
 		})
 	}
