@@ -40,4 +40,4 @@ require("./controllers/burgers_controller.js")(app)
 
 // start server
 var PORT = process.env.PORT || 3000;
-app.listen(port);
+app.listen(PORT);
