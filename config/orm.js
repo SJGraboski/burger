@@ -30,7 +30,7 @@ var orm = {
 		// add a burger with the appropos values
 		s = "INSERT INTO burgers " +
 					"VALUES " +
-						"(null, ?, FALSE, null)";
+						"(null, ?, FALSE, CURRENT_TIMESTAMP)";
 		// make query
 		connection.query(s, [burger], function(err, result){
 			if (err) throw err;
