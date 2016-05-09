@@ -8,14 +8,14 @@ var source = {
 		host: 'localhost',
 		database: 'burgers_db',
 		user: 'root',
-		password: '',
+		password: ''
 	},
 	heroku: {
 		port: 3306,
 		host: 'l9dwvv6j64hlhpul.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
 		database: 'i0iuqapufsqpar1r',
 		user: 'xqsognnmdnhkwsod',
-		password: 'asqkg3pcf7nf9w7m',
+		password: 'asqkg3pcf7nf9w7m'
 	}
 }
 
