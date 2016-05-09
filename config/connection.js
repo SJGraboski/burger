@@ -2,7 +2,7 @@
 var mysql = require('mysql');
 
 // specify connection
-var connection = {
+var source = {
 	local: {
 		port: 3306,
 		host: 'localhost',
@@ -19,7 +19,7 @@ var connection = {
 	}
 }
 
-mysql.createConnection(connection.heroku);
+var connection = mysql.createConnection(source.heroku);
 
 // make the connection
 connection.connect(function(err) {
