@@ -85,7 +85,6 @@ function eatBurger(burger) {
 		url: "api/eat",
 		data: data
 	}).done(function(data){
-		console.log("OKAY!");
 		leftside();
 		rightside();
 	});

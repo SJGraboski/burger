@@ -29,8 +29,9 @@ module.exports = function(app) {
 		// grab the burger obj from the post
 		var newBurger = req.body;
 		// grab the burger's name
-		burger.addNew(newBurger.name);
-		res.end("{'success' : 'Updated Successfully', 'status' : 200}");
+		burger.addNew(newBurger.name, function() {
+			res.end("{'success' : 'Updated Successfully', 'status' : 200}");
+		});
 	})
 
 	// eat a burger
@@ -38,8 +39,9 @@ module.exports = function(app) {
 		// grab the burger obj from the put
 		var eatBurger = req.body;
 		// eat the burger
-		burger.eatOne(eatBurger.name);
-		res.end("{'success' : 'Updated Successfully', 'status' : 200}");
+		burger.eatOne(eatBurger.name, function() {
+			res.end("{'success' : 'Updated Successfully', 'status' : 200}");
+		});
 	})
 
 	// HTML ROUTES

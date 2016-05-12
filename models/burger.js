@@ -18,13 +18,17 @@ var burger = {
 	},
 
 	// code makes a burger
-	addNew: function(burger) {
-		orm.addBurger(burger);
+	addNew: function(burger, callback) {
+		orm.addBurger(burger, function(){
+			callback();
+		});
 	},
 
 	// code sets burger to eaten
-	eatOne: function(burger) {
-		orm.eatBurger(burger);
+	eatOne: function(burger, callback) {
+		orm.eatBurger(burger, function(){
+			callback();
+		});
 	}
 }
 

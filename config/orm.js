@@ -26,7 +26,7 @@ var orm = {
 		}) 
 	},
 	// add a burger
-	addBurger : function(burger) {
+	addBurger : function(burger, callback) {
 		// add a burger with the appropos values
 		s = "INSERT INTO burgers " +
 					"VALUES " +
@@ -34,11 +34,13 @@ var orm = {
 		// make query
 		connection.query(s, [burger], function(err, result){
 			if (err) throw err;
+			// calback
+			callback();
 		})
 	},
 
 	// devour a burger
-	eatBurger : function(burger) {
+	eatBurger : function(burger, callback) {
 		// eat the burger matching the param
 		s = "UPDATE burgers " + 
 				"SET devoured=TRUE " +
@@ -46,6 +48,8 @@ var orm = {
 		// make query
 		connection.query(s, [burger], function(err, result){
 			if (err) throw err;
+			// calback
+			callback();
 		})
 	}
 }
