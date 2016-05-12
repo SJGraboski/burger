@@ -30,6 +30,7 @@ module.exports = function(app) {
 		var newBurger = req.body;
 		// grab the burger's name
 		burger.addNew(newBurger.name);
+		res.end("{'success' : 'Updated Successfully', 'status' : 200}");
 	})
 
 	// eat a burger
@@ -38,6 +39,7 @@ module.exports = function(app) {
 		var eatBurger = req.body;
 		// eat the burger
 		burger.eatOne(eatBurger.name);
+		res.end("{'success' : 'Updated Successfully', 'status' : 200}");
 	})
 
 	// HTML ROUTES
